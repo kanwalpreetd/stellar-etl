@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -58,7 +58,7 @@ jobs:
           git tag ${{ steps.nextversion.outputs.NEXT_VERSION }}
           git push origin ${{ steps.nextversion.outputs.NEXT_VERSION }}
 
-      - uses: release-drafter/release-drafter@v5
+      - uses: release-drafter/release-drafter@v6
         with:
           commitish: master
           name: "stellar-etl ${{ steps.nextversion.outputs.NEXT_VERSION }}"
