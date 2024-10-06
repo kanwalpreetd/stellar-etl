@@ -1,5 +1,5 @@
 # stage 1: build stellar-etl app
-FROM golang:1.22.1-alpine AS build
+FROM golang:1.23.2-alpine AS build
 
 WORKDIR /usr/src/etl
 
@@ -11,7 +11,7 @@ COPY . .
 RUN go build -v -o /usr/local/bin ./...
 
 # stage 2: runtime enviroment
-FROM stellar/stellar-core:21.0.0-1872.c6f474133.focal
+FROM stellar/stellar-core:22.0.0-2088.rc1.2d8d764cd.focal
 
 WORKDIR /etl
 
